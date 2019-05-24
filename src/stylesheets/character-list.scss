@@ -1,12 +1,32 @@
+.character__list--container{
+  // background-color: #292929;
+}
 
 .character__list {
   list-style: none;
   padding-left: 0;
-  display: grid;
-  grid-template-columns: 200px 200px 200px 200px 200px;
-  grid-gap: 30px;
   text-decoration: none;
   color:black;
+  padding: 20px 0 20px 0;
+
+  @media all and (min-width: 500px) {
+    display: grid;
+    grid-template-columns: 190px 190px;
+    grid-gap: 30px;
+  }
+
+  @media all and (min-width: 730px) {
+    grid-template-columns: 190px 190px 190px;
+  }
+
+  @media all and (min-width: 950px) {
+    grid-template-columns: 190px 190px 190px 190px;
+  }
+
+  @media all and (min-width: 1200px) {
+    grid-template-columns: 190px 190px 190px 190px 190px;
+  }
+
 }
 
 .character__list--container {
@@ -26,34 +46,46 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative
+  position: relative;
+  padding-bottom: 20px;
+  @media all and (min-width: 500px) {
+    padding-bottom: 0;
+  }
 }
 
 .character__list--name-container {
-  height: 70px;
-  width: 220px;
+  height: 65px;
+  width: 210px;
   background-position: center;
   background-size: cover;
   position: absolute;
-  top: 69%;
+  top: 64%;
+  @media all and (min-width: 500px) {
+    top: 67%;
+  }
 }
 
 .character__list--name {
-  font-size: 16px;
+  font-size: 15px;
   margin: 25px 0 8px 0;
   text-align: center;
+  transform: rotate(4deg);
 }
 
 .character__list--image-bg {
-  height: 300px;
-  width: 200px;
+  height: 280px;
+  width: 190px;
   background-size: cover;
   background-position: center;
 }
 
 .character__list--house {
-  height: 60px;
+  height: 65px;
   margin-top: 10px;
+}
+
+.character__list--house:hover{
+  transform: scale(1.2);
 }
 
 // <ul className="character__list">

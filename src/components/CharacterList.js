@@ -6,8 +6,8 @@ class CharacterList extends Component {
   constructor(props) {
     super(props);
     this.getHouseCrest = this.getHouseCrest.bind(this);
-    this.filterCrest = this.filterCrest.bind(this);
   }
+
 
   getHouseCrest(house) {
     if (house === 'Gryffindor') {
@@ -27,11 +27,6 @@ class CharacterList extends Component {
     }
   }
 
-  // filterCrest() {
-  //   const {filterHouse} = this.props;
-  //   this.setState({filterHouse: 'Gryffindor' })
-  //   console.log(filterHouse)
-  // }
 
   render() {
     const {characterList, filterName, filterHouse} = this.props;
@@ -48,10 +43,14 @@ class CharacterList extends Component {
                     <h2 className="character__list--name" >{item.name}</h2>
                   </Link>
                 </div>
+                
                 <Link to={`/character/${item.id}`} className="character__list--link">
                   <div className="character__list--image-bg" style={{backgroundImage: `url(${item.image})`}}></div>
                 </Link>
-                <img className="character__list--house" src={this.getHouseCrest(item.house)} alt={item.house} onClick={this.filterCrest}/>
+
+
+
+                <img className="character__list--house" src={this.getHouseCrest(item.house)} alt={item.house} />
               </li>
             )
           }
