@@ -2,6 +2,37 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 class CharacterList extends Component {
+
+  constructor(props) {
+    super(props);
+    this.getHouseCrest = this.getHouseCrest.bind(this);
+    this.filterCrest = this.filterCrest.bind(this);
+  }
+
+  getHouseCrest(house) {
+    if (house === 'Gryffindor') {
+      return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Griffyn_0.png?4kQC5RlG0.YTXTKSv2XFRPEQzudcKngf';
+    }
+    else if (house === 'Slytherin') {
+      return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Sly_0.png?SExUyce6x9j.xakVjrvhB0zXt1ZTwLxK';
+    }
+    else if (house === 'Hufflepuff') {
+      return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Huffle_0.png?lPf6cPdBB2rMbdHm9oZM0w0iJx07hoej';
+    }
+    else if (house === 'Ravenclaw') {
+      return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Raven_0.png?LTQM_J6raYLtZGfHVRb5lS_uCRqRTMIq';
+    }
+    else {
+      return null;
+    }
+  }
+
+  // filterCrest() {
+  //   const {filterHouse} = this.props;
+  //   this.setState({filterHouse: 'Gryffindor' })
+  //   console.log(filterHouse)
+  // }
+
   render() {
     const {characterList, filterName, filterHouse} = this.props;
     return(
@@ -11,18 +42,21 @@ class CharacterList extends Component {
             .filter(item => item.name.toLowerCase().includes(filterName.toLowerCase()))
             .filter(item => item.house.toLowerCase().includes(filterHouse.toLowerCase()))
             .map(item => 
-              <Link to={`/character/${item.id}`} key={item.id} className="character__list--link">
-                <li className="character__list--item">
-                  <h2 className="character__list--name" >{item.name}</h2>
+              <li className="character__list--item" key={item.id}>
+                <div className="character__list--name-container" style={{backgroundImage: `url(https://sitejerk.com/images/banner-transparent-png-1.png)`}}>
+                  <Link to={`/character/${item.id}`} className="character__list--link">
+                    <h2 className="character__list--name" >{item.name}</h2>
+                  </Link>
+                </div>
+                <Link to={`/character/${item.id}`} className="character__list--link">
                   <div className="character__list--image-bg" style={{backgroundImage: `url(${item.image})`}}></div>
-                  <div className="character__list--house-container" style={{backgroundImage: `url(https://sitejerk.com/images/banner-transparent-png-1.png)`}}><h3 className="character__list--house">{item.house}</h3></div>
-                </li>
-              </Link>
+                </Link>
+                <img className="character__list--house" src={this.getHouseCrest(item.house)} alt={item.house} onClick={this.filterCrest}/>
+              </li>
             )
           }
         </ul>
       </div>
-
     )
   }
 }

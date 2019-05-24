@@ -4,7 +4,7 @@
   padding-left: 0;
   display: grid;
   grid-template-columns: 200px 200px 200px 200px 200px;
-  grid-gap: 20px;
+  grid-gap: 30px;
   text-decoration: none;
   color:black;
 }
@@ -29,9 +29,19 @@
   position: relative
 }
 
+.character__list--name-container {
+  height: 70px;
+  width: 220px;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 69%;
+}
+
 .character__list--name {
-  font-size: 20px;
-  margin: 20px 0 8px 0;
+  font-size: 16px;
+  margin: 25px 0 8px 0;
+  text-align: center;
 }
 
 .character__list--image-bg {
@@ -41,18 +51,9 @@
   background-position: center;
 }
 
-.character__list--house-container {
-  height: 60px;
-  width: 190px;
-  background-position: center;
-  background-size: cover;
-  position: absolute;
-  top: 80%;
-}
-
 .character__list--house {
-  margin-top: 17px;
-  text-align: center;
+  height: 60px;
+  margin-top: 10px;
 }
 
 // <ul className="character__list">

@@ -18,7 +18,6 @@ class CharacterCard extends Component {
             <div className="character__card">
               <Link to='/'><i className="fas fa-chevron-circle-left"></i></Link>
               <div className="characters__card--image-bg" style={{backgroundImage: `url(${item.image})`}}></div>
-              {/* {<img src={item.image} alt={item.name} className="characters__card--image"/>} */}
               <div className="character__card--content">
                 <h2 className="characters__card--name">{item.name}</h2>
                 <div className="character__card--content-detail">
