@@ -1,0 +1,59 @@
+.character__card--container {
+  height: 100vh;
+  width: 100vw;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.character__card {
+  height: 400px;
+  width: 600px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.fa-chevron-circle-left {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  font-size: 25px;
+  color: orange;
+}
+
+.characters__card--image-bg {
+  height: 400px;
+  width: 250px;
+  background-size: cover;
+  background-position: center;
+}
+
+.character__card--content {
+  flex-grow: 1;
+}
+
+.characters__card--name {
+  text-align: center;
+  margin: 0;
+}
+
+.character__card--content-detail {
+  padding: 0 20px;
+}
+
+.card-text {
+  margin: 10px;
+}
+
+
+    // <div className="character__card--content">
+    //   <h2 className="characters__card--name">{item.name}</h2>
+    //   <div className="character__card--content-detail">
+    //     <p className="characters__card--house">House: {item.name === 'Kingsley Shacklebolt' ? 'unknown' : `${item.house}`} {item.name === 'Mrs Norris' ? `cats can't get sorted into Hogwarts` : null} {item.name === 'Argus Filch' ? `squibs can't enroll in Hogwarts` : null}</p>
+    //     <p className="characters__card--year">Date of birth: {item.yearOfBirth ? `${item.yearOfBirth}` : 'unknown'}</p>
+    //     <p className="characters__card--patronus">Patronus: {item.name === 'Draco Malfoy' || item.name === 'Cedric Diggory' || item.name === 'Neville Longbottom' || item.name === 'Horace Slughorn' || item.name === 'Vincent Crabbe' || item.name === 'Gregory Goyle' ? 'unknown' : `${item.patronus}`} {item.name === 'Rubeus Hagrid' ? `he can't produce one, it's a very difficult spell` : null } {item.name === 'Bellatrix Lestrange' || item.name === 'Lord Voldemort' || item.name === 'Lucius Malfoy' ? `Death Eaters can't produce a patronus` : null } {item.name === 'Mrs Norris' ? `cat's don't need a patronus` : null} {item.name === 'Argus Filch' ? 'squibs are non-magical' : null}</p>
+    //     <p className="characters__card--state">State: {item.alive ? 'alive' : '💀'}</p>

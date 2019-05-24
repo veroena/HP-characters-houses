@@ -1,0 +1,72 @@
+
+.character__list {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px 200px;
+  grid-gap: 20px;
+  text-decoration: none;
+  color:black;
+}
+
+.character__list--container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.character__list--link {
+  text-decoration: none;
+  color: black;
+  font-family: 'Montaga', serif;
+}
+
+.character__list--item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative
+}
+
+.character__list--name {
+  font-size: 20px;
+  margin: 20px 0 8px 0;
+}
+
+.character__list--image-bg {
+  height: 300px;
+  width: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.character__list--house-container {
+  height: 60px;
+  width: 190px;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 80%;
+}
+
+.character__list--house {
+  margin-top: 17px;
+  text-align: center;
+}
+
+// <ul className="character__list">
+// {characterList
+//   .filter(item => item.name.toLowerCase().includes(filterName.toLowerCase()))
+//   .filter(item => item.house.toLowerCase().includes(filterHouse.toLowerCase()))
+//   .map(item => 
+//     <Link to={`/character/${item.id}`} key={item.id} className="character__list--link">
+//       <li className="character__list--item">
+//         <h2 className="character__list--name">{item.name}</h2>
+//         <div className="character__list--image-bg" style={{backgroundImage: `url(${item.image})`}}></div>
+//         <h3 className="character__list--house">{item.house}</h3>
+//       </li>
+//     </Link>
+//   )
+// }
+// </ul>
