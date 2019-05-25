@@ -5,6 +5,13 @@ import CharacterCard from './components/CharacterCard';
 import Home from './components/Home';
 
 
+
+
+//pasar getHouseCrest={this.getHouseCrest} a Home y CharacterCard si resuelvo lo de los parámetros
+
+
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -95,5 +102,3 @@ class App extends Component {
 }
 
 export default App;
-
-//pasar getHouseCrest={this.getHouseCrest} a Home y CharacterCard si resuelvo lo de los parámetros
