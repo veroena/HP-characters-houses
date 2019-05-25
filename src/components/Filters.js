@@ -4,7 +4,7 @@ class Filters extends React.Component {
   render() {
     const {filterName, filterHouse, changeValueName, changeValueHouse, resetNameOnClick, resetHouseOnClick} = this.props;
     return (
-      <form className="filters">
+      <form className="filters" >
         <fieldset className="fieldset filters__name">
           <label htmlFor="character">Search by name</label>
           <input id="characters" name="character" type="text" value={filterName} onChange={changeValueName} onFocus={resetNameOnClick} className="filters__input" />
@@ -20,3 +20,4 @@ class Filters extends React.Component {
 
 export default Filters;
 
+// style={{backgroundImage: `url(https://res.cloudinary.com/dkr52htco/image/upload/v1536173269/fog-2.png)`}}

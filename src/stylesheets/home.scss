@@ -1,24 +1,24 @@
-.animation__container {
-  background-color: rgb(12, 12, 12);
-  background-size: cover;
-  overflow: hidden;
-  position: relative;
-  height: 230vh;
-}
+// .animation__container {
+//   background-color: rgb(12, 12, 12);
+//   background-size: cover;
+//   overflow: hidden;
+//   position: relative;
+//   height: 230vh;
+// }
 
-.animation__sliding {
-  position: absolute;
-  width: 1000vw;
-  height: 100%;
-  background-size: contain;
-  animation: slide 18s linear infinite;
-}
+// .animation__sliding {
+//   position: absolute;
+//   width: 1000vw;
+//   height: 100%;
+//   background-size: contain;
+//   animation: slide 18s linear infinite;
+// }
 
-@keyframes slide {
-  0%{
-    transform: translate3d(0, 0, 0);
-  }
-  100%{
-    transform: translate3d(-1692px, 0, 0);
-  }
-}
+// @keyframes slide {
+//   0%{
+//     transform: translate3d(0, 0, 0);
+//   }
+//   100%{
+//     transform: translate3d(-1692px, 0, 0);
+//   }
+// }
