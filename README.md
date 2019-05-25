@@ -1,4 +1,4 @@
-### Veronica Enamorado - Adalab Fairfax Promo Final Evaluation
+# Veronica Enamorado - Adalab Fairfax Promo Final Evaluation
 
 This is a website for the final evaluation on Adalab to practice React JS. Consists of a web page with a list of Harry Potter characters that you can filter by name or house. When you click on the character, a new card will be shown, using React Router.
 
