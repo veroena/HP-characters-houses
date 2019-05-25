@@ -30,6 +30,7 @@ class CharacterList extends Component {
 
   render() {
     const {characterList, filterName, filterHouse} = this.props;
+    
     return(
       <div className="character__list--container">
         <ul className="character__list">
@@ -43,13 +44,9 @@ class CharacterList extends Component {
                     <h2 className="character__list--name" >{item.name}</h2>
                   </Link>
                 </div>
-                
                 <Link to={`/character/${item.id}`} className="character__list--link">
                   <div className="character__list--image-bg" style={{backgroundImage: `url(${item.image})`}}></div>
                 </Link>
-
-
-
                 <img className="character__list--house" src={this.getHouseCrest(item.house)} alt={item.house} />
               </li>
             )
