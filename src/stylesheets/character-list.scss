@@ -3,14 +3,14 @@
   background-size: cover;
   overflow: hidden;
   position: relative;
-  height: 300vh;
+  padding-bottom: 80px;
 }
 
 .character__list--animation {
   position: absolute;
   width: 1000vw;
   height: 100%;
-  background-size: contain;
+  background-size: cover;
   animation: slide 18s linear infinite;
 }
 
