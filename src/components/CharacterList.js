@@ -32,26 +32,28 @@ class CharacterList extends Component {
     const {characterList, filterName, filterHouse} = this.props;
     
     return(
-      <div className="character__list--container">
-        <ul className="character__list">
-          {characterList
-            .filter(item => item.name.toLowerCase().includes(filterName.toLowerCase()))
-            .filter(item => item.house.toLowerCase().includes(filterHouse.toLowerCase()))
-            .map(item => 
-              <li className="character__list--item" key={item.id}>
-                <div className="character__list--name-container" style={{backgroundImage: `url(https://sitejerk.com/images/banner-transparent-png-1.png)`}}>
+      <div className="character__list--container" style={{backgroundImage: `url(https://res.cloudinary.com/dkr52htco/image/upload/v1536173269/fog-1.png)`}}>
+        <div className="character__list--animation" style={{backgroundImage: `url(https://res.cloudinary.com/dkr52htco/image/upload/v1536173269/fog-2.png)`}}>
+          <ul className="character__list">
+            {characterList
+              .filter(item => item.name.toLowerCase().includes(filterName.toLowerCase()))
+              .filter(item => item.house.toLowerCase().includes(filterHouse.toLowerCase()))
+              .map(item => 
+                <li className="character__list--item" key={item.id}>
+                  <div className="character__list--name-container" style={{backgroundImage: `url(https://sitejerk.com/images/banner-transparent-png-1.png)`}}>
+                    <Link to={`/character/${item.id}`} className="character__list--link">
+                      <h2 className="character__list--name" >{item.name}</h2>
+                    </Link>
+                  </div>
                   <Link to={`/character/${item.id}`} className="character__list--link">
-                    <h2 className="character__list--name" >{item.name}</h2>
+                    <div className="character__list--image-bg" style={{backgroundImage: `url(${item.image})`}}></div>
                   </Link>
-                </div>
-                <Link to={`/character/${item.id}`} className="character__list--link">
-                  <div className="character__list--image-bg" style={{backgroundImage: `url(${item.image})`}}></div>
-                </Link>
-                <img className="character__list--house" src={this.getHouseCrest(item.house)} alt={item.house} />
-              </li>
-            )
-          }
-        </ul>
+                  <img className="character__list--house" src={this.getHouseCrest(item.house)} alt={item.house} />
+                </li>
+              )
+            }
+          </ul>
+        </div>
       </div>
     )
   }

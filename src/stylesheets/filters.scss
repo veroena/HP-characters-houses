@@ -1,0 +1,35 @@
+.filters {
+  background-color: rgba(15, 43, 57, 0.95);
+  color: white;
+  font-family: 'Montaga', serif;
+  display: block;
+  text-align: center;
+
+  @media all and (min-width: 700px){
+    height: 70px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+
+.fieldset {
+  border: none;
+}
+
+.filters__input {
+  height: 20px;
+  width: 230px;
+  font-family: 'Montaga', serif;
+  margin-top: 5px;
+
+  @media all and (min-width: 390px) {
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+
+  @media all and (min-width: 900px) {
+    margin-left: 10px;
+  }
+}

@@ -1,0 +1,19 @@
+.header__container {
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(15, 43, 57, 0.95);
+
+  @media all and (min-width: 500px) {
+    height: 170px;
+  }
+}
+
+.header__logo {
+  height: 100px;
+
+  @media all and (min-width: 500px) {
+    height: 150px;
+  }
+}
