@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class CharacterList extends Component {
 
@@ -59,5 +60,11 @@ class CharacterList extends Component {
     )
   }
 }
+
+CharacterList.propTypes = {
+  characterList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  filterName: PropTypes.string.isRequired,
+   filterHouse: PropTypes.string.isRequired
+};
 
 export default CharacterList;

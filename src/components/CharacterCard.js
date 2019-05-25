@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class CharacterCard extends Component {
 
@@ -69,13 +70,13 @@ class CharacterCard extends Component {
   }
 
   render() {
-    const { charactersList } = this.props;
+    const { characterList } = this.props;
     const characterId = parseInt(this.props.match.params.id);
-    const item = charactersList.find(item => item.id === characterId);
+    const item = characterList.find(item => item.id === characterId);
     return(
       <Fragment>
         <div className="character__card--container" style={{backgroundImage: `url(${this.getCommonRoom(item.house)})`}}>
-          {charactersList.length > 0 ?
+          {characterList.length > 0 ?
             <div className={`character__card ${this.getHouseColor(item.house)}`}>
               <Link to='/'><i className="fas fa-chevron-circle-left"></i></Link>
               <div className="characters__card--image" style={{backgroundImage: `url(${item.image})`}}></div>
@@ -98,5 +99,10 @@ class CharacterCard extends Component {
     )
   }
 }
+
+CharacterCard.propTypes = {
+  characterList: PropTypes.array.isRequired,
+  resetFilter: PropTypes.func.isRequired,
+};
 
 export default CharacterCard;

@@ -85,7 +85,7 @@ class App extends Component {
               )}
             />
             <Route path="/character/:id" render={potterProps => (
-              <CharacterCard match={potterProps.match} charactersList={characterList} resetFilter={this.resetFilter} />
+              <CharacterCard match={potterProps.match} characterList={characterList} resetFilter={this.resetFilter} />
               )}
             />
           </Switch>

@@ -3,6 +3,7 @@ import Filters from './Filters';
 import CharacterList from './CharacterList';
 import Header from './Header';
 import Footer from './Footer';
+import PropTypes from 'prop-types';
 
 class Home extends Component {
   render() {
@@ -18,6 +19,16 @@ class Home extends Component {
       </Fragment>
     )
   }
+}
+
+Home.propTypes = {
+  characterList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  filterName: PropTypes.string.isRequired,
+  filterHouse: PropTypes.string.isRequired,
+  changeValueName: PropTypes.func.isRequired,
+  changeValueHouse: PropTypes.func.isRequired,
+  resetNameOnClick: PropTypes.func.isRequired,
+  resetHouseOnClick: PropTypes.func.isRequired
 }
 
 export default Home;

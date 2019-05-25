@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Filters extends React.Component {
   render() {
@@ -18,6 +19,13 @@ class Filters extends React.Component {
   }
 }
 
-export default Filters;
+Filters.propTypes = {
+  filterName: PropTypes.string.isRequired,
+  filterHouse: PropTypes.string.isRequired,
+  changeValueName: PropTypes.func.isRequired,
+  changeValueHouse: PropTypes.func.isRequired,
+  resetNameOnClick: PropTypes.func.isRequired,
+  resetHouseOnClick: PropTypes.func.isRequired
+}
 
-// style={{backgroundImage: `url(https://res.cloudinary.com/dkr52htco/image/upload/v1536173269/fog-2.png)`}}
+export default Filters;
