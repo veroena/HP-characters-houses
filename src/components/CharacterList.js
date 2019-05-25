@@ -28,7 +28,6 @@ class CharacterList extends Component {
     }
   }
 
-
   render() {
     const {characterList, filterName, filterHouse} = this.props;
     
@@ -50,7 +49,9 @@ class CharacterList extends Component {
                     <Link to={`/character/${item.id}`} className="character__list--link">
                       <div className="character__list--image-bg" style={{backgroundImage: `url(${item.image})`}}></div>
                     </Link>
-                    <img className="character__list--house" src={this.getHouseCrest(item.house)} alt={item.house} />
+                    <Link to={`/house/${item.house}`}>
+                      <img className="character__list--house" src={this.getHouseCrest(item.house)} alt={item.house} />
+                    </Link>
                   </li>
                 )
               }

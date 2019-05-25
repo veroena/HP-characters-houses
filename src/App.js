@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {fetchCharacters} from './services/fetchCharacters';
 import {Route, Switch} from 'react-router-dom';
 import CharacterCard from './components/CharacterCard';
+import HouseCard from './components/HouseCard';
 import Home from './components/Home';
 
 
@@ -88,11 +89,15 @@ class App extends Component {
       <div className="App">
           <Switch>
             <Route exact path="/" render={() => (
-              <Home characterList={characterList} filterName={filterName} filterHouse={filterHouse} changeValueName={this.changeValueName} changeValueHouse={this.changeValueHouse} resetNameOnClick={this.resetNameOnClick} resetHouseOnClick={this.resetHouseOnClick}  />
+              <Home characterList={characterList} filterName={filterName} filterHouse={filterHouse} changeValueName={this.changeValueName} changeValueHouse={this.changeValueHouse} resetNameOnClick={this.resetNameOnClick} resetHouseOnClick={this.resetHouseOnClick} handleFilterHouse={this.handleFilterHouse}  />
               )}
             />
             <Route path="/character/:id" render={potterProps => (
               <CharacterCard match={potterProps.match} characterList={characterList} resetFilter={this.resetFilter} />
+              )}
+            />
+            <Route path="/house/:house" render={houseProps => (
+              <HouseCard match={houseProps.match} />
               )}
             />
           </Switch>

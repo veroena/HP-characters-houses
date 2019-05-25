@@ -13,7 +13,7 @@ class Home extends Component {
         <Header />
         <main>
           <Filters filterName={filterName} changeValueName={changeValueName} resetNameOnClick={resetNameOnClick} filterHouse={filterHouse} changeValueHouse={changeValueHouse} resetHouseOnClick={resetHouseOnClick} />
-          <CharacterList characterList={characterList} filterName={filterName} filterHouse={filterHouse}/>
+          <CharacterList characterList={characterList} filterName={filterName} filterHouse={filterHouse} />
         </main>
         <Footer />
       </Fragment>
