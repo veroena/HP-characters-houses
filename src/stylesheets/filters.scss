@@ -1,9 +1,9 @@
 .filters {
-  background-color: rgba(15, 43, 57, 0.95);
   color: white;
   font-family: 'Montaga', serif;
   display: block;
   text-align: center;
+  z-index: 1;
 
   @media all and (min-width: 700px){
     height: 60px;

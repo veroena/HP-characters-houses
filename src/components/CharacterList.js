@@ -32,8 +32,8 @@ class CharacterList extends Component {
     const {characterList, filterName, filterHouse} = this.props;
     
     return(
-      <div className="character__list--container-all" style={{backgroundImage: `url(https://res.cloudinary.com/dkr52htco/image/upload/v1536173269/fog-2.png)`}}>
-        <div className="character__list--animation" style={{backgroundImage: `url(https://res.cloudinary.com/dkr52htco/image/upload/v1536173269/fog-1.png)`}}></div>
+      <div className="character__list--container-all">
+        <div className="character__list--animation"></div>
           <div className="character__list--container">
             <ul className="character__list">
               {characterList

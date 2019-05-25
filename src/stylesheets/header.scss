@@ -3,7 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(15, 43, 57, 0.95);
+  background-size: cover;
+  background-position: bottom;
 
   @media all and (min-width: 500px) {
     height: 170px;

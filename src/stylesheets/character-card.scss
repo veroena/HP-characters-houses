@@ -13,6 +13,8 @@
 
 .character__card {
   font-family: 'Montaga', serif;
+  position: relative;
+  height: 100vh;
   @media all and (min-width: 500px) {
     height: 400px;
     width: 600px;
@@ -20,16 +22,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
   }
 }
 
 .fa-chevron-circle-left {
   position: absolute;
-  top: 5%;
-  right: 5%;
   font-size: 25px;
   color: white;
+  top: 2%;
+  right: 3%;
+
+  @media all and(min-width:500px) {
+    top: 5%;
+    right: 5%;
+  }
 }
 
 .characters__card--image {
