@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Characters from './components/Characters';
 import Landing from './components/Landing';
 import Houses from './components/Houses';
+import Sorting from './components/Sorting';
 
 
 class App extends Component {
@@ -15,7 +16,12 @@ class App extends Component {
     this.state = {
       characterList: JSON.parse(localStorage.getItem('charactersArray')) || [],
       filterName: '',
-      filterHouse: ''
+      filterHouse: '',
+      sortingArray : [],
+      sortingId: [],
+      sortingResult: 0,
+      isModalVisible: false,
+      sortingHouse: ''
     }
     this.changeValueName = this.changeValueName.bind(this);
     this.changeValueHouse = this.changeValueHouse.bind(this);
@@ -24,6 +30,8 @@ class App extends Component {
     this.resetHouseOnClick = this.resetHouseOnClick.bind(this);
     this.getHouseCrest = this.getHouseCrest.bind(this);
     this.getHouseColor = this.getHouseColor.bind(this);
+    this.getSortingValue = this.getSortingValue.bind(this);
+    this.sumSortingValue = this.sumSortingValue.bind(this);
   }
 
   componentDidMount() {
@@ -97,9 +105,40 @@ class App extends Component {
     }
   }
 
+  getSortingValue(event) {
+    const radioDataId = event.currentTarget.id;
+    this.setState(prevState => ({
+      sortingId: [...prevState.sortingId, radioDataId]
+    }))
+    if (!this.state.sortingId.includes(radioDataId)) {
+      const radioValue = event.currentTarget.value;
+      this.setState(prevState => ({
+        sortingArray: [...prevState.sortingArray, parseInt(radioValue)]
+      }))
+    }
+  }
+
+  sumSortingValue(event) {
+    event.preventDefault();
+    const resultSorting = this.state.sortingArray.reduce((acc, number) => acc + number);
+    this.setState({ sortingResult : resultSorting, isModalVisible: true });
+  
+    if (resultSorting <= 8) {
+      this.setState({sortingHouse : 'gryffindor'})
+    } else if (resultSorting >= 9 && resultSorting <= 12) {
+      this.setState({sortingHouse : 'slytherin'})
+    } else if (resultSorting >=13 && resultSorting <= 16 ) {
+      this.setState({sortingHouse : 'ravenclaw'})
+    } else if (resultSorting > 17) {
+      this.setState({sortingHouse : 'hufflepuff'})
+    } else {
+      this.setState({sortingHouse : ''})
+    }
+  }
+
 
   render () {
-    const {characterList, filterName, filterHouse} = this.state;
+    const {characterList, filterName, filterHouse, sortingHouse} = this.state;
     return (
       <div className="App">
           <Switch>
@@ -118,6 +157,10 @@ class App extends Component {
               <HouseCard match={houseProps.match} getHouseColor={this.getHouseColor} />
               )}
             />
+            <Route path="/sorting" render={sortingProps => (
+              <Sorting match={sortingProps.match} getSortingValue={this.getSortingValue} sumSortingValue={this.sumSortingValue} isModalVisible={this.state.isModalVisible} sortingHouse={sortingHouse} />
+              )}
+              />
             <Redirect from='/' to='/landing' />
           </Switch>
       </div>
