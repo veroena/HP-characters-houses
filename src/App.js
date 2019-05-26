@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {fetchCharacters} from './services/fetchCharacters';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 import CharacterCard from './components/CharacterCard';
 import HouseCard from './components/HouseCard';
 import Home from './components/Home';
+import Landing from './components/Landing';
 
 
 
@@ -88,7 +89,8 @@ class App extends Component {
     return (
       <div className="App">
           <Switch>
-            <Route exact path="/" render={() => (
+            <Route path="/landing" component={Landing}/>
+            <Route exact path="/home" render={() => (
               <Home characterList={characterList} filterName={filterName} filterHouse={filterHouse} changeValueName={this.changeValueName} changeValueHouse={this.changeValueHouse} resetNameOnClick={this.resetNameOnClick} resetHouseOnClick={this.resetHouseOnClick} handleFilterHouse={this.handleFilterHouse}  />
               )}
             />
@@ -100,6 +102,7 @@ class App extends Component {
               <HouseCard match={houseProps.match} />
               )}
             />
+            <Redirect from='/' to='/landing' />
           </Switch>
       </div>
     );
