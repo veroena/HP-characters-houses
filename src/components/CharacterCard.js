@@ -6,49 +6,11 @@ class CharacterCard extends Component {
 
   constructor(props) {
     super(props);
-    this.getHouseCrest = this.getHouseCrest.bind(this);
-    this.getHouseColor = this.getHouseColor.bind(this);
     this.getCommonRoom = this.getCommonRoom.bind(this);
   }
 
   componentWillUnmount() {
     this.props.resetFilter();
-  }
-
-  getHouseCrest(house) {
-    if (house === 'Gryffindor') {
-      return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Griffyn_0.png?4kQC5RlG0.YTXTKSv2XFRPEQzudcKngf';
-    }
-    else if (house === 'Slytherin') {
-      return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Sly_0.png?SExUyce6x9j.xakVjrvhB0zXt1ZTwLxK';
-    }
-    else if (house === 'Hufflepuff') {
-      return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Huffle_0.png?lPf6cPdBB2rMbdHm9oZM0w0iJx07hoej';
-    }
-    else if (house === 'Ravenclaw') {
-      return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Raven_0.png?LTQM_J6raYLtZGfHVRb5lS_uCRqRTMIq';
-    }
-    else {
-      return null;
-    }
-  }
-
-  getHouseColor(house) {
-    if (house === 'Gryffindor') {
-      return 'gryffindor';
-    }
-    else if (house === 'Slytherin') {
-      return 'slytherin';
-    }
-    else if (house === 'Hufflepuff') {
-      return 'hufflepuff';
-    }
-    else if (house === 'Ravenclaw') {
-      return 'ravenclaw';
-    }
-    else {
-      return 'no-house';
-    }
   }
 
   getCommonRoom(house) {
@@ -70,14 +32,15 @@ class CharacterCard extends Component {
   }
 
   render() {
-    const { characterList } = this.props;
+    const { characterList, getHouseCrest, getHouseColor } = this.props;
     const characterId = parseInt(this.props.match.params.id);
     const item = characterList.find(item => item.id === characterId);
-    return(
+
+    return (
       <Fragment>
         <div className="character__card--container" style={{backgroundImage: `url(${this.getCommonRoom(item.house)})`}}>
           {characterList.length > 0 ?
-            <div className={`character__card ${this.getHouseColor(item.house)}`}>
+            <div className={`character__card ${getHouseColor(item.house)}`}>
               <Link to='/characters'><i className="fas fa-chevron-circle-left"></i></Link>
               <div className="characters__card--image" style={{backgroundImage: `url(${item.image})`}}></div>
               <div className="character__card--content">
@@ -89,7 +52,7 @@ class CharacterCard extends Component {
                   <p className="characters__card--state card-text">State: {item.alive ? 'alive' : '💀'}</p>
                 </div>
                 <Link to={`/house/${item.house}`}>
-                  <img className="characters__card--crest" src={this.getHouseCrest(item.house)} alt={item.house}/>
+                  <img className="characters__card--crest" src={getHouseCrest(item.house)} alt={item.house}/>
                 </Link>
               </div>
             </div>
