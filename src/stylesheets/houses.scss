@@ -1,7 +1,25 @@
 .houses__list {
   list-style: none;
   padding: 0;
+
+  @media all and (min-width: 768px) {
   display: flex;
   justify-content: center;
   align-items: center;
+  }  
+}
+
+.houses__list--item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.houses__list--image {
+  height: 250px;
+
+  @media all and (min-width: 450px) {
+    height: 300px;
+  }
 }
