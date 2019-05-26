@@ -5,13 +5,6 @@ import CharacterCard from './components/CharacterCard';
 import Home from './components/Home';
 
 
-
-
-//pasar getHouseCrest={this.getHouseCrest} a Home y CharacterCard si resuelvo lo de los parámetros
-
-
-
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -25,11 +18,7 @@ class App extends Component {
     this.resetFilter = this.resetFilter.bind(this);
     this.resetNameOnClick = this.resetNameOnClick.bind(this);
     this.resetHouseOnClick = this.resetHouseOnClick.bind(this);
-
-
     this.getHouseCrest = this.getHouseCrest.bind(this);
-
-
   }
 
   componentDidMount() {
@@ -67,8 +56,6 @@ class App extends Component {
   }
 
 
-
-
   getHouseCrest(house) {
     if (house === 'Gryffindor') {
       return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Griffyn_0.png?4kQC5RlG0.YTXTKSv2XFRPEQzudcKngf';
@@ -87,9 +74,6 @@ class App extends Component {
     }
   }
 
-
-
-  
 
   render () {
     const {characterList, filterName, filterHouse} = this.state;
