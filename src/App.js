@@ -27,7 +27,7 @@ class App extends Component {
     this.resetHouseOnClick = this.resetHouseOnClick.bind(this);
 
 
-    // this.getHouseCrest = this.getHouseCrest.bind(this);
+    this.getHouseCrest = this.getHouseCrest.bind(this);
 
 
   }
@@ -69,23 +69,23 @@ class App extends Component {
 
 
 
-  // getHouseCrest(house) {
-  //   if (house === 'Gryffindor') {
-  //     return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Griffyn_0.png?4kQC5RlG0.YTXTKSv2XFRPEQzudcKngf';
-  //   }
-  //   else if (house === 'Slytherin') {
-  //     return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Sly_0.png?SExUyce6x9j.xakVjrvhB0zXt1ZTwLxK';
-  //   }
-  //   else if (house === 'Hufflepuff') {
-  //     return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Huffle_0.png?lPf6cPdBB2rMbdHm9oZM0w0iJx07hoej';
-  //   }
-  //   else if (house === 'Ravenclaw') {
-  //     return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Raven_0.png?LTQM_J6raYLtZGfHVRb5lS_uCRqRTMIq';
-  //   }
-  //   else {
-  //     return null;
-  //   }
-  // }
+  getHouseCrest(house) {
+    if (house === 'Gryffindor') {
+      return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Griffyn_0.png?4kQC5RlG0.YTXTKSv2XFRPEQzudcKngf';
+    }
+    else if (house === 'Slytherin') {
+      return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Sly_0.png?SExUyce6x9j.xakVjrvhB0zXt1ZTwLxK';
+    }
+    else if (house === 'Hufflepuff') {
+      return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Huffle_0.png?lPf6cPdBB2rMbdHm9oZM0w0iJx07hoej';
+    }
+    else if (house === 'Ravenclaw') {
+      return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Raven_0.png?LTQM_J6raYLtZGfHVRb5lS_uCRqRTMIq';
+    }
+    else {
+      return null;
+    }
+  }
 
 
 
@@ -97,11 +97,11 @@ class App extends Component {
       <div className="App">
           <Switch>
             <Route exact path="/" render={() => (
-              <Home characterList={characterList} filterName={filterName} filterHouse={filterHouse} changeValueName={this.changeValueName} changeValueHouse={this.changeValueHouse} resetNameOnClick={this.resetNameOnClick} resetHouseOnClick={this.resetHouseOnClick}  />
+              <Home characterList={characterList} filterName={filterName} filterHouse={filterHouse} changeValueName={this.changeValueName} changeValueHouse={this.changeValueHouse} resetNameOnClick={this.resetNameOnClick} resetHouseOnClick={this.resetHouseOnClick} getHouseCrest={this.getHouseCrest}  />
               )}
             />
             <Route path="/character/:id" render={potterProps => (
-              <CharacterCard match={potterProps.match} characterList={characterList} resetFilter={this.resetFilter} />
+              <CharacterCard match={potterProps.match} characterList={characterList} resetFilter={this.resetFilter} getHouseCrest={this.getHouseCrest} />
               )}
             />
           </Switch>

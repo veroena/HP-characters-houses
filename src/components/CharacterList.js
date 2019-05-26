@@ -4,33 +4,8 @@ import PropTypes from 'prop-types';
 
 class CharacterList extends Component {
 
-  constructor(props) {
-    super(props);
-    this.getHouseCrest = this.getHouseCrest.bind(this);
-  }
-
-
-  getHouseCrest(house) {
-    if (house === 'Gryffindor') {
-      return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Griffyn_0.png?4kQC5RlG0.YTXTKSv2XFRPEQzudcKngf';
-    }
-    else if (house === 'Slytherin') {
-      return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Sly_0.png?SExUyce6x9j.xakVjrvhB0zXt1ZTwLxK';
-    }
-    else if (house === 'Hufflepuff') {
-      return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Huffle_0.png?lPf6cPdBB2rMbdHm9oZM0w0iJx07hoej';
-    }
-    else if (house === 'Ravenclaw') {
-      return 'https://d1v224g40dbxxy.cloudfront.net/s3fs-public/gallery-images/Raven_0.png?LTQM_J6raYLtZGfHVRb5lS_uCRqRTMIq';
-    }
-    else {
-      return null;
-    }
-  }
-
-
   render() {
-    const {characterList, filterName, filterHouse} = this.props;
+    const {characterList, filterName, filterHouse, getHouseCrest} = this.props;
     
     return(
       <div className="character__list--container-all" style={{backgroundImage: `url(https://res.cloudinary.com/dkr52htco/image/upload/v1536173269/fog-2.png)`}}>
@@ -50,7 +25,7 @@ class CharacterList extends Component {
                     <Link to={`/character/${item.id}`} className="character__list--link">
                       <div className="character__list--image-bg" style={{backgroundImage: `url(${item.image})`}}></div>
                     </Link>
-                    <img className="character__list--house" src={this.getHouseCrest(item.house)} alt={item.house} />
+                    <img className="character__list--house" src={getHouseCrest(item.house)} alt={item.house} />
                   </li>
                 )
               }
