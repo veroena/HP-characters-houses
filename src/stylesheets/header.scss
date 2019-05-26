@@ -1,13 +1,15 @@
 .header__container {
-  height: 110px;
+  height: 170px;
   display: flex;
+  width: 100%;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-size: cover;
   background-position: bottom;
 
   @media all and (min-width: 500px) {
-    height: 170px;
+    height: 200px;
   }
 }
 
@@ -16,5 +18,31 @@
 
   @media all and (min-width: 500px) {
     height: 150px;
+  }
+}
+
+.header__nav {
+  height: 200px;
+  width: 100%;
+  font-family: 'Montaga', serif;
+}
+
+.header__nav--list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+}
+
+.header__link {
+  text-decoration: none;
+  color: white;
+}
+
+.header__nav--list-item {
+  font-size: 18px;
+  &:hover {
+    transform: scale(1.2);
   }
 }

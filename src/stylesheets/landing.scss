@@ -7,8 +7,8 @@
 .landing__link {
   background-size: cover;
   background-position: center;
-  height: 560px;
-  width: 600px;
+  height: 450px;
+  width: 450px;
 }
 
 .landing__wrapper {
@@ -20,8 +20,8 @@
 }
 
 .landing__steps1 {
-  width: 400px;
-  height: 100px;
+  width: 350px;
+  height: 90px;
   position: absolute;
   top: 2%;
   left: 5%;
@@ -30,7 +30,7 @@
 
 .foot {
   position: absolute;
-  height: 20px;
+  height: 18px;
   animation: steps 25s infinite;
   opacity: 0;
 }

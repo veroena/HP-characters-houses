@@ -78,7 +78,7 @@ class CharacterCard extends Component {
         <div className="character__card--container" style={{backgroundImage: `url(${this.getCommonRoom(item.house)})`}}>
           {characterList.length > 0 ?
             <div className={`character__card ${this.getHouseColor(item.house)}`}>
-              <Link to='/'><i className="fas fa-chevron-circle-left"></i></Link>
+              <Link to='/characters'><i className="fas fa-chevron-circle-left"></i></Link>
               <div className="characters__card--image" style={{backgroundImage: `url(${item.image})`}}></div>
               <div className="character__card--content">
                 <h2 className="characters__card--name">{item.name}</h2>
