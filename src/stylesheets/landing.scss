@@ -34,7 +34,7 @@
 
 
   @media all and (min-width: 500px) {
-    transform: scale(1);
+    transform: scale(0.9);
   }
 }
 
@@ -122,7 +122,7 @@
     position: absolute;
     top: 70%;
     right: 0%;
-    transform: rotate(120deg);
+    transform: rotate(120deg) scale(0.9);
   }
 }
 
