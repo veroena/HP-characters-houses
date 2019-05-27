@@ -6,10 +6,10 @@ import {Link} from 'react-router-dom';
 
 class Houses extends Component {
   render() {
-
+    const {sortingHouse, getHouseColor} = this.props;
     return(
       <div className="houses__container">
-        <Header />
+        <Header sortingHouse={sortingHouse} getHouseColor={getHouseColor} />
         <main>
           <ul className="houses__list">
             <li className="houses__list--item">

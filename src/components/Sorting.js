@@ -51,28 +51,15 @@ class Sorting extends Component {
   }
 
 
-  // getSortingValue(event) {
-  //   const radioDataId = event.currentTarget.id;
-  //   this.setState(prevState => ({
-  //     sortingId: [...prevState.sortingId, radioDataId]
-  //   }))
-  //   if (!this.state.sortingId.includes(radioDataId)) {
-  //     const radioValue = event.currentTarget.value;
-  //     this.setState(prevState => ({
-  //       sortingArray: [...prevState.sortingArray, parseInt(radioValue)]
-  //     }))
-  //   }
-  // }
-
 
   render() {
-    const { isModalVisible, sortingHouse } = this.props;
+    const { isModalVisible, sortingHouse, getHouseColor } = this.props;
     // const sortValue = this.props.match.params.house;
     // const item = hogwartsData.find(item => item.house === houseName);
 
     return(
       <Fragment>
-        <Header />
+        <Header sortingHouse={sortingHouse} getHouseColor={getHouseColor} />
         <h2 className="sorting__title">Sorting Hat</h2>
         <img src="" alt="" className="sorting__image"/>
         <p className="sorting__info"></p>

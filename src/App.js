@@ -17,8 +17,6 @@ class App extends Component {
       characterList: JSON.parse(localStorage.getItem('charactersArray')) || [],
       filterName: '',
       filterHouse: '',
-      // sortingArray : [],
-      // sortingId: [],
       sortingResult: 0,
       isModalVisible: false,
       sortingHouse: ''
@@ -109,16 +107,18 @@ class App extends Component {
     this.setState ({sortingResult : number, isModalVisible : true});
 
     if (number <= 8) {
-      this.setState({sortingHouse : 'gryffindor'})
+      this.setState({sortingHouse : 'Gryffindor'})
     } else if (number >= 9 && number <= 12) {
-      this.setState({sortingHouse : 'slytherin'})
+      this.setState({sortingHouse : 'Slytherin'})
     } else if (number >=13 && number <= 16 ) {
-      this.setState({sortingHouse : 'ravenclaw'})
+      this.setState({sortingHouse : 'Ravenclaw'})
     } else if (number => 17) {
-      this.setState({sortingHouse : 'hufflepuff'})
+      this.setState({sortingHouse : 'Hufflepuff'})
     } else {
       this.setState({sortingHouse : ''})
     }
+    
+    localStorage.setItem('house', this.state.sortingHouse);
   }
 
 
@@ -128,22 +128,26 @@ class App extends Component {
       <div className="App">
           <Switch>
             <Route path="/landing" component={Landing}/>
-            <Route path="/home" component={Home}/>
+            <Route path="/home" render={() => (
+              <Home sortingHouse={sortingHouse} getHouseColor={this.getHouseColor} />)}
+            />
             <Route exact path="/characters" render={() => (
-              <Characters characterList={characterList} filterName={filterName} filterHouse={filterHouse} changeValueName={this.changeValueName} changeValueHouse={this.changeValueHouse} resetNameOnClick={this.resetNameOnClick} resetHouseOnClick={this.resetHouseOnClick} handleFilterHouse={this.handleFilterHouse} getHouseCrest={this.getHouseCrest}  />
+              <Characters characterList={characterList} filterName={filterName} filterHouse={filterHouse} changeValueName={this.changeValueName} changeValueHouse={this.changeValueHouse} resetNameOnClick={this.resetNameOnClick} resetHouseOnClick={this.resetHouseOnClick} handleFilterHouse={this.handleFilterHouse} getHouseCrest={this.getHouseCrest} sortingHouse={sortingHouse} getHouseColor={this.getHouseColor} />
               )}
             />
             <Route path="/character/:id" render={potterProps => (
               <CharacterCard match={potterProps.match} characterList={characterList} resetFilter={this.resetFilter} getHouseCrest={this.getHouseCrest} getHouseColor={this.getHouseColor} />
               )}
             />
-            <Route path="/houses" component={Houses}/>
+            <Route path="/houses" render={() => (
+              <Houses sortingHouse={sortingHouse} getHouseColor={this.getHouseColor} />)}
+            />
             <Route path="/house/:house" render={houseProps => (
               <HouseCard match={houseProps.match} getHouseColor={this.getHouseColor} />
               )}
             />
             <Route path="/sorting" render={sortingProps => (
-              <Sorting match={sortingProps.match} getSortingValue={this.getSortingValue} sumSortingValue={this.sumSortingValue} isModalVisible={this.state.isModalVisible} sortingHouse={sortingHouse} getSortingHouse={this.getSortingHouse} />
+              <Sorting match={sortingProps.match} getSortingValue={this.getSortingValue} sumSortingValue={this.sumSortingValue} isModalVisible={this.state.isModalVisible} sortingHouse={sortingHouse} getSortingHouse={this.getSortingHouse} getHouseColor={this.getHouseColor} />
               )}
               />
             <Redirect from='/' to='/landing' />
