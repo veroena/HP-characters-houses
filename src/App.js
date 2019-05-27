@@ -17,8 +17,8 @@ class App extends Component {
       characterList: JSON.parse(localStorage.getItem('charactersArray')) || [],
       filterName: '',
       filterHouse: '',
-      sortingArray : [],
-      sortingId: [],
+      // sortingArray : [],
+      // sortingId: [],
       sortingResult: 0,
       isModalVisible: false,
       sortingHouse: ''
@@ -30,8 +30,7 @@ class App extends Component {
     this.resetHouseOnClick = this.resetHouseOnClick.bind(this);
     this.getHouseCrest = this.getHouseCrest.bind(this);
     this.getHouseColor = this.getHouseColor.bind(this);
-    this.getSortingValue = this.getSortingValue.bind(this);
-    this.sumSortingValue = this.sumSortingValue.bind(this);
+    this.getCosas = this.getCosas.bind(this);
   }
 
   componentDidMount() {
@@ -105,31 +104,17 @@ class App extends Component {
     }
   }
 
-  getSortingValue(event) {
-    const radioDataId = event.currentTarget.id;
-    this.setState(prevState => ({
-      sortingId: [...prevState.sortingId, radioDataId]
-    }))
-    if (!this.state.sortingId.includes(radioDataId)) {
-      const radioValue = event.currentTarget.value;
-      this.setState(prevState => ({
-        sortingArray: [...prevState.sortingArray, parseInt(radioValue)]
-      }))
-    }
-  }
 
-  sumSortingValue(event) {
-    event.preventDefault();
-    const resultSorting = this.state.sortingArray.reduce((acc, number) => acc + number);
-    this.setState({ sortingResult : resultSorting, isModalVisible: true });
-  
-    if (resultSorting <= 8) {
+  getCosas(number) {
+    this.setState ({sortingResult : number, isModalVisible : true});
+
+    if (number <= 8) {
       this.setState({sortingHouse : 'gryffindor'})
-    } else if (resultSorting >= 9 && resultSorting <= 12) {
+    } else if (number >= 9 && number <= 12) {
       this.setState({sortingHouse : 'slytherin'})
-    } else if (resultSorting >=13 && resultSorting <= 16 ) {
+    } else if (number >=13 && number <= 16 ) {
       this.setState({sortingHouse : 'ravenclaw'})
-    } else if (resultSorting > 17) {
+    } else if (number => 17) {
       this.setState({sortingHouse : 'hufflepuff'})
     } else {
       this.setState({sortingHouse : ''})
@@ -158,7 +143,7 @@ class App extends Component {
               )}
             />
             <Route path="/sorting" render={sortingProps => (
-              <Sorting match={sortingProps.match} getSortingValue={this.getSortingValue} sumSortingValue={this.sumSortingValue} isModalVisible={this.state.isModalVisible} sortingHouse={sortingHouse} />
+              <Sorting match={sortingProps.match} getSortingValue={this.getSortingValue} sumSortingValue={this.sumSortingValue} isModalVisible={this.state.isModalVisible} sortingHouse={sortingHouse} getCosas={this.getCosas} />
               )}
               />
             <Redirect from='/' to='/landing' />
