@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import {Link} from 'react-router-dom';
@@ -8,7 +8,7 @@ class Houses extends Component {
   render() {
 
     return(
-      <Fragment>
+      <div className="houses__container">
         <Header />
         <main>
           <ul className="houses__list">
@@ -35,7 +35,7 @@ class Houses extends Component {
           </ul>
         </main>
         <Footer />
-      </Fragment>
+      </div>
     )
   }
 }

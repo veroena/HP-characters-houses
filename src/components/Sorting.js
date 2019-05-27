@@ -19,16 +19,14 @@ class Sorting extends Component {
     this.sendValueToConstructor3 = this.sendValueToConstructor3.bind(this);
     this.sendValueToConstructor4 = this.sendValueToConstructor4.bind(this);
     this.sendValueToConstructor5 = this.sendValueToConstructor5.bind(this);
-    this.getPaco = this.getPaco.bind(this);
+    this.getResultSorting = this.getResultSorting.bind(this);
   }
 
 
-  getPaco(event) {
+  getResultSorting(event) {
     event.preventDefault();
     const result = this.data1 + this.data2 + this.data3 + this.data4 + this.data5;
-    this.props.getCosas(result)
-    console.log(result);
-    console.log(this.data1);
+    this.props.getSortingHouse(result)
   }
 
   sendValueToConstructor1(event) {
@@ -107,7 +105,7 @@ class Sorting extends Component {
             <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="5" value="3"/> Stupefy!
             <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="5" value="2"/> Crucio!
 
-          <button onClick={this.getPaco} className="form__button" type="submit">click</button>
+          <button onClick={this.getResultSorting} className="form__button" type="submit">click</button>
           {isModalVisible && <div className="sorting__result">{sortingHouse}</div>}
         </form>
         <Footer />

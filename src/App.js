@@ -30,7 +30,7 @@ class App extends Component {
     this.resetHouseOnClick = this.resetHouseOnClick.bind(this);
     this.getHouseCrest = this.getHouseCrest.bind(this);
     this.getHouseColor = this.getHouseColor.bind(this);
-    this.getCosas = this.getCosas.bind(this);
+    this.getSortingHouse = this.getSortingHouse.bind(this);
   }
 
   componentDidMount() {
@@ -105,7 +105,7 @@ class App extends Component {
   }
 
 
-  getCosas(number) {
+  getSortingHouse(number) {
     this.setState ({sortingResult : number, isModalVisible : true});
 
     if (number <= 8) {
@@ -143,7 +143,7 @@ class App extends Component {
               )}
             />
             <Route path="/sorting" render={sortingProps => (
-              <Sorting match={sortingProps.match} getSortingValue={this.getSortingValue} sumSortingValue={this.sumSortingValue} isModalVisible={this.state.isModalVisible} sortingHouse={sortingHouse} getCosas={this.getCosas} />
+              <Sorting match={sortingProps.match} getSortingValue={this.getSortingValue} sumSortingValue={this.sumSortingValue} isModalVisible={this.state.isModalVisible} sortingHouse={sortingHouse} getSortingHouse={this.getSortingHouse} />
               )}
               />
             <Redirect from='/' to='/landing' />
