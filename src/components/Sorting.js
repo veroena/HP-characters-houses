@@ -53,13 +53,13 @@ class Sorting extends Component {
 
 
   render() {
-    const { isModalVisible, sortingHouse, getHouseColor } = this.props;
+    const { isModalVisible, sortingHouse, getHouseColor, getHouseCrest } = this.props;
     // const sortValue = this.props.match.params.house;
     // const item = hogwartsData.find(item => item.house === houseName);
 
     return(
       <Fragment>
-        <Header sortingHouse={sortingHouse} getHouseColor={getHouseColor} />
+        <Header sortingHouse={sortingHouse} getHouseColor={getHouseColor} getHouseCrest={getHouseCrest} />
         <h2 className="sorting__title">Sorting Hat</h2>
         <img src="" alt="" className="sorting__image"/>
         <p className="sorting__info"></p>

@@ -10,7 +10,7 @@ class Characters extends Component {
     const {characterList, filterName, filterHouse, changeValueName, changeValueHouse, resetNameOnClick, resetHouseOnClick, getHouseCrest, sortingHouse, getHouseColor} = this.props;
     return(
       <Fragment>
-        <Header sortingHouse={sortingHouse} getHouseColor={getHouseColor} />
+        <Header sortingHouse={sortingHouse} getHouseColor={getHouseColor} getHouseCrest={getHouseCrest} />
         <main>
           <Filters filterName={filterName} changeValueName={changeValueName} resetNameOnClick={resetNameOnClick} filterHouse={filterHouse} changeValueHouse={changeValueHouse} resetHouseOnClick={resetHouseOnClick} />
           <CharacterList characterList={characterList} filterName={filterName} filterHouse={filterHouse} getHouseCrest={getHouseCrest}  />
