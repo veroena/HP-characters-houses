@@ -7,13 +7,13 @@ import PropTypes from 'prop-types';
 
 class Home extends Component {
   render() {
-    const {characterList, filterName, filterHouse, changeValueName, changeValueHouse, resetNameOnClick, resetHouseOnClick, getHouseCrest} = this.props;
+    const {characterList, filterName, filterHouse, changeValueName, changeValueHouse, resetNameOnClick, resetHouseOnClick, getHouseCrest, filterDead, changeValueDead} = this.props;
     return(
       <Fragment>
         <Header />
         <main>
-          <Filters filterName={filterName} changeValueName={changeValueName} resetNameOnClick={resetNameOnClick} filterHouse={filterHouse} changeValueHouse={changeValueHouse} resetHouseOnClick={resetHouseOnClick} />
-          <CharacterList characterList={characterList} filterName={filterName} filterHouse={filterHouse} getHouseCrest={getHouseCrest}/>
+          <Filters filterName={filterName} changeValueName={changeValueName} resetNameOnClick={resetNameOnClick} filterHouse={filterHouse} changeValueHouse={changeValueHouse} resetHouseOnClick={resetHouseOnClick} filterDead={filterDead} changeValueDead={changeValueDead} />
+          <CharacterList characterList={characterList} filterName={filterName} filterHouse={filterHouse} getHouseCrest={getHouseCrest} filterDead={filterDead} />
         </main>
         <Footer />
       </Fragment>

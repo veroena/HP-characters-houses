@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class CharacterList extends Component {
 
   render() {
-    const {characterList, filterName, filterHouse, getHouseCrest} = this.props;
+    const {characterList, filterName, filterHouse, getHouseCrest, filterDead} = this.props;
     
     return(
       <div className="character__list--container-all" style={{backgroundImage: `url(https://res.cloudinary.com/dkr52htco/image/upload/v1536173269/fog-2.png)`}}>
@@ -15,6 +15,15 @@ class CharacterList extends Component {
               {characterList
                 .filter(item => item.name.toLowerCase().includes(filterName.toLowerCase()))
                 .filter(item => item.house.toLowerCase().includes(filterHouse.toLowerCase()))
+                .filter(item => {
+                  if (filterDead === 'all') {
+                    return item;
+                  } else if (filterDead === 'alive') {
+                    return item.alive === true;
+                  } else {
+                    return item.alive === false;
+                  }
+                })
                 .map(item => 
                   <li className="character__list--item" key={item.id}>
                     <div className="character__list--name-container" style={{backgroundImage: `url(https://sitejerk.com/images/banner-transparent-png-1.png)`}}>

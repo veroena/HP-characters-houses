@@ -11,7 +11,8 @@ class App extends Component {
     this.state = {
       characterList: JSON.parse(localStorage.getItem('charactersArray')) || [],
       filterName: '',
-      filterHouse: ''
+      filterHouse: '',
+      filterDead: 'all'
     }
     this.changeValueName = this.changeValueName.bind(this);
     this.changeValueHouse = this.changeValueHouse.bind(this);
@@ -19,6 +20,7 @@ class App extends Component {
     this.resetNameOnClick = this.resetNameOnClick.bind(this);
     this.resetHouseOnClick = this.resetHouseOnClick.bind(this);
     this.getHouseCrest = this.getHouseCrest.bind(this);
+    this.changeValueDead = this.changeValueDead.bind(this);
   }
 
   componentDidMount() {
@@ -41,6 +43,11 @@ class App extends Component {
   changeValueHouse(event) {
     const inputValueHouse = event.currentTarget.value;
     this.setState({filterHouse : inputValueHouse});
+  }
+
+  changeValueDead(event) {
+    const valueDead = event.currentTarget.value;
+    this.setState({filterDead : valueDead});
   }
 
   resetFilter(){
@@ -75,13 +82,15 @@ class App extends Component {
   }
 
 
+
+
   render () {
-    const {characterList, filterName, filterHouse} = this.state;
+    const {characterList, filterName, filterHouse, filterDead} = this.state;
     return (
       <div className="App">
           <Switch>
             <Route exact path="/" render={() => (
-              <Home characterList={characterList} filterName={filterName} filterHouse={filterHouse} changeValueName={this.changeValueName} changeValueHouse={this.changeValueHouse} resetNameOnClick={this.resetNameOnClick} resetHouseOnClick={this.resetHouseOnClick} getHouseCrest={this.getHouseCrest}  />
+              <Home characterList={characterList} filterName={filterName} filterHouse={filterHouse} changeValueName={this.changeValueName} changeValueHouse={this.changeValueHouse} resetNameOnClick={this.resetNameOnClick} resetHouseOnClick={this.resetHouseOnClick} getHouseCrest={this.getHouseCrest} filterDead={filterDead} changeValueDead={this.changeValueDead}  />
               )}
             />
             <Route path="/character/:id" render={potterProps => (
