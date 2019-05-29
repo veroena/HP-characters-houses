@@ -90,91 +90,91 @@ class Sorting extends Component {
                       <input onChange={this.sendValueToConstructor1} type="radio" className="sorting__input" name="1" id="1" value="4" defaultChecked/> 
                       "Pity the living, and above all, those who live without love."
                     </label>
-                    <label htmlFor="1" className="sorting__label">
-                      <input onChange={this.sendValueToConstructor1} type="radio" className="sorting__input" name="1" id="1" value="3"/> 
+                    <label htmlFor="2" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor1} type="radio" className="sorting__input" name="1" id="2" value="3"/> 
                       "Words are, in my not-so-humble opinion, our most inexhaustible source of magic."
                     </label>
-                    <label htmlFor="1" className="sorting__label">
-                      <input onChange={this.sendValueToConstructor1} type="radio" className="sorting__input" name="1" id="1" value="1"/> 
+                    <label htmlFor="3" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor1} type="radio" className="sorting__input" name="1" id="3" value="1"/> 
                       "It matters not what someone is born, but what they grow to be."</label>
-                    <label htmlFor="1" className="sorting__label">
-                      <input onChange={this.sendValueToConstructor1} type="radio" className="sorting__input" name="1" id="1" value="2"/>
+                    <label htmlFor="4" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor1} type="radio" className="sorting__input" name="1" id="4" value="2"/>
                       "It does not do to dwell on dreams and forget to live."
                     </label>
                 </fieldset>
                 <fieldset className="sorting__form--fieldset">
                   <legend className="sorting__form--legend">Which of your skills are you most proud of?</legend>
-                    <label htmlFor="2" className="sorting__label">
-                      <input onChange={this.sendValueToConstructor2} type="radio" className="sorting__input" name="2" id="2" value="3" defaultChecked/>
+                    <label htmlFor="5" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor2} type="radio" className="sorting__input" name="2" id="5" value="3" defaultChecked/>
                       My ability to absorb new information.
                     </label>
-                    <label htmlFor="2" className="sorting__label">
-                      <input onChange={this.sendValueToConstructor2} type="radio" className="sorting__input" name="2" id="2" value="4"/>
+                    <label htmlFor="6" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor2} type="radio" className="sorting__input" name="2" id="6" value="4"/>
                       My ability to make new friends.
                     </label>
-                    <label htmlFor="2" className="sorting__label">
-                      <input onChange={this.sendValueToConstructor2} type="radio" className="sorting__input" name="2" id="2" value="1"/>
+                    <label htmlFor="7" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor2} type="radio" className="sorting__input" name="2" id="7" value="1"/>
                       My ability to get what I want.
                     </label>
-                    <label htmlFor="2" className="sorting__label">
-                      <input onChange={this.sendValueToConstructor2} type="radio" className="sorting__input" name="2" id="2" value="2"/>
+                    <label htmlFor="8" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor2} type="radio" className="sorting__input" name="2" id="8" value="2"/>
                       My ability to keep secrets.
                     </label>
                 </fieldset>
                 <fieldset className="sorting__form--fieldset">
                   <legend className="sorting__form--legend">The first Quidditch match of the season is approaching, and you can't wait to get involved. What role are you playing?</legend>
-                    <label htmlFor="3" className="sorting__label">
-                      <input onChange={this.sendValueToConstructor3} type="radio" className="sorting__input" name="3" id="3" value="1" defaultChecked/>
+                    <label htmlFor="9" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor3} type="radio" className="sorting__input" name="3" id="9" value="1" defaultChecked/>
                       Seeker. I want the glory!
                     </label>
-                    <label htmlFor="3" className="sorting__label">
-                      <input onChange={this.sendValueToConstructor3} type="radio" className="sorting__input" name="3" id="3" value="3"/>
+                    <label htmlFor="10" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor3} type="radio" className="sorting__input" name="3" id="10" value="3"/>
                       Chaser. I like to be involved, and work as part of the team.
                     </label>
-                    <label htmlFor="3" className="sorting__label">
-                      <input onChange={this.sendValueToConstructor3} type="radio" className="sorting__input" name="3" id="3" value="2"/>
+                    <label htmlFor="11" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor3} type="radio" className="sorting__input" name="3" id="11" value="2"/>
                       Beater. I like having all that power.
                     </label>
-                    <label htmlFor="3" className="sorting__label">
-                      <input onChange={this.sendValueToConstructor3} type="radio" className="sorting__input" name="3" id="3" value="4"/>
+                    <label htmlFor="12" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor3} type="radio" className="sorting__input" name="3" id="12" value="4"/>
                       I'll be in the crowd, making sure supporter morale is high!
                     </label>
                 </fieldset>
                 <fieldset className="sorting__form--fieldset">
                   <legend className="sorting__form--legend">What would you see in the Mirror of Erised?</legend>  
-                    <label htmlFor="4" className="sorting__label">
-                      <input onChange={this.sendValueToConstructor4} type="radio" className="sorting__input" name="4" id="4" value="2" defaultChecked/>
+                    <label htmlFor="13" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor4} type="radio" className="sorting__input" name="4" id="13" value="2" defaultChecked/>
                       Myself, surrounded by riches.
                     </label>
-                    <label htmlFor="4" className="sorting__label">
-                      <input onChange={this.sendValueToConstructor4} type="radio" className="sorting__input" name="4" id="4" value="4"/>
+                    <label htmlFor="14" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor4} type="radio" className="sorting__input" name="4" id="14" value="4"/>
                       Myself, surrounded by my loving family and friends.
                     </label>
-                    <label htmlFor="4" className="sorting__label">
-                      <input onChange={this.sendValueToConstructor4} type="radio" className="sorting__input" name="4" id="4" value="3"/>
+                    <label htmlFor="15" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor4} type="radio" className="sorting__input" name="4" id="15" value="3"/>
                       Myself, knowledgable above all.
                     </label>
-                    <label htmlFor="4" className="sorting__label">
-                      <input onChange={this.sendValueToConstructor4} type="radio" className="sorting__input" name="4" id="4" value="1"/>
+                    <label htmlFor="16" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor4} type="radio" className="sorting__input" name="4" id="16" value="1"/>
                       Myself, experiencing a marvellous adventure.
                     </label>
                   </fieldset>
                   <fieldset className="sorting__form--fieldset">
                     <legend className="sorting__form--legend">You're locked in a duel with a skilled opponent. They fire an unknown spell at you, and you shout…</legend> 
-                      <label htmlFor="5" className="sorting__label">
-                        <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="5" value="1" defaultChecked/>
+                      <label htmlFor="17" className="sorting__label">
+                        <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="17" value="1" defaultChecked/>
                         Expelliarmus!
                       </label>
-                      <label htmlFor="5" className="sorting__label">
-                        <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="5" value="4"/>
+                      <label htmlFor="18" className="sorting__label">
+                        <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="18" value="4"/>
                         Protego!
                       </label>
-                      <label htmlFor="5" className="sorting__label">
-                        <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="5" value="3"/>
+                      <label htmlFor="19" className="sorting__label">
+                        <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="19" value="3"/>
                         Stupefy!
                       </label>
-                      <label htmlFor="5" className="sorting__label">
-                        <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="5" value="2"/>
+                      <label htmlFor="20" className="sorting__label">
+                        <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="20" value="2"/>
                         Crucio!
                       </label>
                   </fieldset>
