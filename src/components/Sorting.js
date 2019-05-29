@@ -3,6 +3,9 @@ import React, {Component, Fragment} from 'react';
 // import PropTypes from 'prop-types';
 import Header from './Header';
 import Footer from './Footer';
+import Modal from './Modal';
+import {Link} from 'react-router-dom';
+
 
 class Sorting extends Component {
 
@@ -20,6 +23,7 @@ class Sorting extends Component {
     this.sendValueToConstructor4 = this.sendValueToConstructor4.bind(this);
     this.sendValueToConstructor5 = this.sendValueToConstructor5.bind(this);
     this.getResultSorting = this.getResultSorting.bind(this);
+    this.getHouseBackground = this.getHouseBackground.bind(this);
   }
 
 
@@ -50,52 +54,146 @@ class Sorting extends Component {
     this.data5 = parseInt(radioValue);
   }
 
-
+  getHouseBackground(house) {
+     if (house === 'Gryffindor') {
+      return 'https://wallpapermemory.com/uploads/556/gryffindor-wallpaper-laptop-463365.jpg';
+    }
+    else if (house === 'Slytherin') {
+      return 'https://img1.goodfon.com/wallpaper/nbig/f/1d/slizerin-slytherin-zmeya.jpg';
+    }
+    else if (house === 'Hufflepuff') {
+      return 'https://images7.alphacoders.com/556/thumb-1920-556260.jpg';
+    }
+    else if (house === 'Ravenclaw') {
+      return 'https://images.alphacoders.com/556/556535.jpg';
+    }
+  }
 
   render() {
-    const { isModalVisible, sortingHouse, getHouseColor, getHouseCrest } = this.props;
-    // const sortValue = this.props.match.params.house;
-    // const item = hogwartsData.find(item => item.house === houseName);
+    const { isModalVisible, sortingHouse, getHouseColor, getHouseCrest, closeModal } = this.props;
 
     return(
       <Fragment>
-        <Header sortingHouse={sortingHouse} getHouseColor={getHouseColor} getHouseCrest={getHouseCrest} />
-        <h2 className="sorting__title">Sorting Hat</h2>
-        <img src="" alt="" className="sorting__image"/>
-        <p className="sorting__info"></p>
-        <form action="" className="sorting__form">
-          <fieldset className="sorting__form--fieldset">
-            <label htmlFor="1" className="sorting__label">Which of these Dumbledore quotes speaks to you?</label>
-              <input onChange={this.sendValueToConstructor1} type="radio" className="sorting__input" name="1" id="1" value="4"/> "Pity the living, and above all, those who live without love."
-              <input onChange={this.sendValueToConstructor1} type="radio" className="sorting__input" name="1" id="1" value="3"/> "Words are, in my not-so-humble opinion, our most inexhaustible source of magic."
-              <input onChange={this.sendValueToConstructor1} type="radio" className="sorting__input" name="1" id="1" value="1"/> "It matters not what someone is born, but what they grow to be."
-              <input onChange={this.sendValueToConstructor1} type="radio" className="sorting__input" name="1" id="1" value="2"/> "It does not do to dwell on dreams and forget to live."
-          </fieldset>
-          <label htmlFor="2" className="sorting__label">Which of your skills are you most proud of?</label>
-            <input onChange={this.sendValueToConstructor2} type="radio" className="sorting__input" name="2" id="2" value="3"/> My ability to absorb new information.
-            <input onChange={this.sendValueToConstructor2} type="radio" className="sorting__input" name="2" id="2" value="4"/> My ability to make new friends.
-            <input onChange={this.sendValueToConstructor2} type="radio" className="sorting__input" name="2" id="2" value="1"/> My ability to get what I want.
-            <input onChange={this.sendValueToConstructor2} type="radio" className="sorting__input" name="2" id="2" value="2"/> My ability to keep secrets.
-          <label htmlFor="3" className="sorting__label">The first Quidditch match of the season is approaching, and you can't wait to get involved. What role are you playing?</label>
-            <input onChange={this.sendValueToConstructor3} type="radio" className="sorting__input" name="3" id="3" value="1"/> Seeker. I want the glory!
-            <input onChange={this.sendValueToConstructor3} type="radio" className="sorting__input" name="3" id="3" value="3"/> Chaser. I like to be involved, and work as part of the team.
-            <input onChange={this.sendValueToConstructor3} type="radio" className="sorting__input" name="3" id="3" value="2"/> Beater. I like having all that power.
-            <input onChange={this.sendValueToConstructor3} type="radio" className="sorting__input" name="3" id="3" value="4"/> I'll be in the crowd, making sure supporter morale is high!
-          <label htmlFor="4" className="sorting__label">What would you see in the Mirror of Erised?</label>
-            <input onChange={this.sendValueToConstructor4} type="radio" className="sorting__input" name="4" id="4" value="2"/> Myself, surrounded by riches.
-            <input onChange={this.sendValueToConstructor4} type="radio" className="sorting__input" name="4" id="4" value="4"/> Myself, surrounded by my loving family and friends.
-            <input onChange={this.sendValueToConstructor4} type="radio" className="sorting__input" name="4" id="4" value="3"/> Myself, knowledgable above all.
-            <input onChange={this.sendValueToConstructor4} type="radio" className="sorting__input" name="4" id="4" value="1"/> Myself, experiencing a marvellous adventure.
-          <label htmlFor="5" className="sorting__label">You're locked in a duel with a skilled opponent. They fire an unknown spell at you, and you shout…</label>
-            <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="5" value="1"/> Expelliarmus!
-            <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="5" value="4"/> Protego!
-            <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="5" value="3"/> Stupefy!
-            <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="5" value="2"/> Crucio!
-
-          <button onClick={this.getResultSorting} className="form__button" type="submit">click</button>
-          {isModalVisible && <div className="sorting__result">{sortingHouse}</div>}
-        </form>
-        <Footer />
+        {sortingHouse === '' ?
+          <Fragment>
+            <Header sortingHouse={sortingHouse} getHouseColor={getHouseColor} getHouseCrest={getHouseCrest} />
+            <div className="sorting">
+              <div className="sorting__hat">
+                <h2 className="sorting__title">The Sorting Hat</h2>
+                <img src="https://caseydemo.github.io/images/sorting-hat.png" alt="" className="sorting__image"/>
+              </div>
+              <p className="sorting__info"></p>
+              <form action="" className="sorting__form">
+                <fieldset className="sorting__form--fieldset">
+                  <legend className="sorting__form--legend">Which of these Dumbledore quotes speaks to you?</legend>
+                    <label htmlFor="1" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor1} type="radio" className="sorting__input" name="1" id="1" value="4" defaultChecked/> 
+                      "Pity the living, and above all, those who live without love."
+                    </label>
+                    <label htmlFor="1" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor1} type="radio" className="sorting__input" name="1" id="1" value="3"/> 
+                      "Words are, in my not-so-humble opinion, our most inexhaustible source of magic."
+                    </label>
+                    <label htmlFor="1" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor1} type="radio" className="sorting__input" name="1" id="1" value="1"/> 
+                      "It matters not what someone is born, but what they grow to be."</label>
+                    <label htmlFor="1" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor1} type="radio" className="sorting__input" name="1" id="1" value="2"/>
+                      "It does not do to dwell on dreams and forget to live."
+                    </label>
+                </fieldset>
+                <fieldset className="sorting__form--fieldset">
+                  <legend className="sorting__form--legend">Which of your skills are you most proud of?</legend>
+                    <label htmlFor="2" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor2} type="radio" className="sorting__input" name="2" id="2" value="3" defaultChecked/>
+                      My ability to absorb new information.
+                    </label>
+                    <label htmlFor="2" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor2} type="radio" className="sorting__input" name="2" id="2" value="4"/>
+                      My ability to make new friends.
+                    </label>
+                    <label htmlFor="2" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor2} type="radio" className="sorting__input" name="2" id="2" value="1"/>
+                      My ability to get what I want.
+                    </label>
+                    <label htmlFor="2" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor2} type="radio" className="sorting__input" name="2" id="2" value="2"/>
+                      My ability to keep secrets.
+                    </label>
+                </fieldset>
+                <fieldset className="sorting__form--fieldset">
+                  <legend className="sorting__form--legend">The first Quidditch match of the season is approaching, and you can't wait to get involved. What role are you playing?</legend>
+                    <label htmlFor="3" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor3} type="radio" className="sorting__input" name="3" id="3" value="1" defaultChecked/>
+                      Seeker. I want the glory!
+                    </label>
+                    <label htmlFor="3" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor3} type="radio" className="sorting__input" name="3" id="3" value="3"/>
+                      Chaser. I like to be involved, and work as part of the team.
+                    </label>
+                    <label htmlFor="3" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor3} type="radio" className="sorting__input" name="3" id="3" value="2"/>
+                      Beater. I like having all that power.
+                    </label>
+                    <label htmlFor="3" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor3} type="radio" className="sorting__input" name="3" id="3" value="4"/>
+                      I'll be in the crowd, making sure supporter morale is high!
+                    </label>
+                </fieldset>
+                <fieldset className="sorting__form--fieldset">
+                  <legend className="sorting__form--legend">What would you see in the Mirror of Erised?</legend>  
+                    <label htmlFor="4" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor4} type="radio" className="sorting__input" name="4" id="4" value="2" defaultChecked/>
+                      Myself, surrounded by riches.
+                    </label>
+                    <label htmlFor="4" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor4} type="radio" className="sorting__input" name="4" id="4" value="4"/>
+                      Myself, surrounded by my loving family and friends.
+                    </label>
+                    <label htmlFor="4" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor4} type="radio" className="sorting__input" name="4" id="4" value="3"/>
+                      Myself, knowledgable above all.
+                    </label>
+                    <label htmlFor="4" className="sorting__label">
+                      <input onChange={this.sendValueToConstructor4} type="radio" className="sorting__input" name="4" id="4" value="1"/>
+                      Myself, experiencing a marvellous adventure.
+                    </label>
+                  </fieldset>
+                  <fieldset className="sorting__form--fieldset">
+                    <legend className="sorting__form--legend">You're locked in a duel with a skilled opponent. They fire an unknown spell at you, and you shout…</legend> 
+                      <label htmlFor="5" className="sorting__label">
+                        <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="5" value="1" defaultChecked/>
+                        Expelliarmus!
+                      </label>
+                      <label htmlFor="5" className="sorting__label">
+                        <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="5" value="4"/>
+                        Protego!
+                      </label>
+                      <label htmlFor="5" className="sorting__label">
+                        <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="5" value="3"/>
+                        Stupefy!
+                      </label>
+                      <label htmlFor="5" className="sorting__label">
+                        <input onChange={this.sendValueToConstructor5} type="radio" className="sorting__input" name="5" id="5" value="2"/>
+                        Crucio!
+                      </label>
+                  </fieldset>
+                <button onClick={this.getResultSorting} className="form__button" type="submit">click</button>
+              </form>
+              <Footer />
+            </div>
+          </Fragment>
+        :
+          <div className="welcome__container">
+            {isModalVisible && <Modal closeModal={closeModal} sortingHouse={sortingHouse} getHouseColor={getHouseColor} getHouseCrest={getHouseCrest} />}
+            <Header sortingHouse={sortingHouse} getHouseColor={getHouseColor} getHouseCrest={getHouseCrest} />
+            <div className="welcome" style={{backgroundImage : `url(${this.getHouseBackground(sortingHouse)})`}}>
+              <h2 className="welcome__title">Welcome to house {sortingHouse}</h2>
+              <p className="welcome__info"><Link to={`/house/${sortingHouse}`} className="welcome__info--link">If you want to know more about your house, click here!</Link></p>
+            </div>
+            <Footer />
+          </div>
+        }
       </Fragment>
     )
   }

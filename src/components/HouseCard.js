@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 // import {Link} from 'react-router-dom';
 // import PropTypes from 'prop-types';
 import {hogwartsData} from '../services/hogwartsData';
+import {Link} from 'react-router-dom';
 
 class HouseCard extends Component {
 
@@ -13,6 +14,7 @@ class HouseCard extends Component {
     return(
       <div className="house__container">
         <header className={`house__header ${getHouseColor(item.house)}`}>
+          <Link to='/houses'><i className="fas fa-chevron-circle-left"></i></Link>
           <h1 className="house__name">{item.house}</h1>
           <h2 className="house__values">{item.values}</h2>
         </header>

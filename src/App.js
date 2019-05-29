@@ -29,6 +29,8 @@ class App extends Component {
     this.getHouseCrest = this.getHouseCrest.bind(this);
     this.getHouseColor = this.getHouseColor.bind(this);
     this.getSortingHouse = this.getSortingHouse.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+
   }
 
   componentDidMount() {
@@ -122,6 +124,10 @@ class App extends Component {
     localStorage.setItem('house', sortingHouse);
   }
 
+  closeModal() {
+    this.setState({ isModalVisible: false });
+  }
+
 
   render () {
     const {characterList, filterName, filterHouse, sortingHouse} = this.state;
@@ -148,7 +154,7 @@ class App extends Component {
               )}
             />
             <Route path="/sorting" render={sortingProps => (
-              <Sorting match={sortingProps.match} getSortingValue={this.getSortingValue} sumSortingValue={this.sumSortingValue} isModalVisible={this.state.isModalVisible} sortingHouse={sortingHouse} getSortingHouse={this.getSortingHouse} getHouseColor={this.getHouseColor} getHouseCrest={this.getHouseCrest} />
+              <Sorting match={sortingProps.match} getSortingValue={this.getSortingValue} sumSortingValue={this.sumSortingValue} isModalVisible={this.state.isModalVisible} sortingHouse={sortingHouse} getSortingHouse={this.getSortingHouse} getHouseColor={this.getHouseColor} getHouseCrest={this.getHouseCrest} closeModal={this.closeModal} />
               )}
               />
             <Redirect from='/' to='/landing' />
