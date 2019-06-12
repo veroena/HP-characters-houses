@@ -109,13 +109,13 @@ class App extends Component {
 
     let sortingHouse = '';
 
-    if (number <= 8) {
+    if (number <= 5) {
       sortingHouse = 'Gryffindor';
-    } else if (number >= 9 && number <= 12) {
+    } else if (number >= 6 && number <= 9) {
       sortingHouse = 'Slytherin';
-    } else if (number >=13 && number <= 16 ) {
+    } else if (number >=10 && number <= 13 ) {
       sortingHouse = 'Ravenclaw';
-    } else if (number => 17) {
+    } else if (number => 14) {
       sortingHouse = 'Hufflepuff';
     } 
 
