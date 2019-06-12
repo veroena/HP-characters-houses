@@ -1,0 +1,105 @@
+.house__container {
+  font-family: 'Montaga', serif;
+}
+
+.house__header {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+  @media all and (min-width: 1024px) {
+    height: 220px;
+  }
+}
+
+.house__name {
+  margin: 0;
+  font-size: 45px;
+  font-weight: 400;
+  @media all and (min-width: 1024px) {
+    font-size: 60px;
+  }
+}
+
+.house__values {
+  font-size: 18px;
+  font-weight: 400;
+  @media all and (min-width: 1024px) {
+    font-size: 20px;
+    margin: 30px 0 0;
+  }
+}
+
+.house__middle {
+  @media all and (min-width: 1024px) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+  }
+}
+
+.house__quote {
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  padding: 0 20px;
+  color: rgb(24, 26, 26);
+
+  @media all and (min-width: 1024px) {
+    font-size: 25px;
+    line-height: 35px;
+  }
+}
+
+.house__crest {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 330px;
+  margin: 0 auto;
+
+  @media all and (min-width: 1024px) {
+    height: 420px;
+  }
+}
+
+.house__end {
+  @media all and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.house__common-room--container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.house__common-room {
+  height: 320px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media all and (min-width: 768px) {
+    height: 450px;
+  }
+}
+
+.house__end--info {
+  font-size: 16px;
+  padding: 0 0 15px 15px;
+  
+  @media all and (min-width: 768px) {
+    flex-grow: 1;
+    padding-left: 20px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+}

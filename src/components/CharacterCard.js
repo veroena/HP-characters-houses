@@ -6,30 +6,11 @@ class CharacterCard extends Component {
 
   constructor(props) {
     super(props);
-    this.getHouseColor = this.getHouseColor.bind(this);
     this.getCommonRoom = this.getCommonRoom.bind(this);
   }
 
   componentWillUnmount() {
     this.props.resetFilter();
-  }
-
-  getHouseColor(house) {
-    if (house === 'Gryffindor') {
-      return 'gryffindor';
-    }
-    else if (house === 'Slytherin') {
-      return 'slytherin';
-    }
-    else if (house === 'Hufflepuff') {
-      return 'hufflepuff';
-    }
-    else if (house === 'Ravenclaw') {
-      return 'ravenclaw';
-    }
-    else {
-      return 'no-house';
-    }
   }
 
   getCommonRoom(house) {
@@ -51,15 +32,16 @@ class CharacterCard extends Component {
   }
 
   render() {
-    const { characterList, getHouseCrest } = this.props;
+    const { characterList, getHouseCrest, getHouseColor } = this.props;
     const characterId = parseInt(this.props.match.params.id);
     const item = characterList.find(item => item.id === characterId);
-    return(
+
+    return (
       <Fragment>
         <div className="character__card--container" style={{backgroundImage: `url(${this.getCommonRoom(item.house)})`}}>
           {characterList.length > 0 ?
-            <div className={`character__card ${this.getHouseColor(item.house)}`}>
-              <Link to='/'><i className="fas fa-chevron-circle-left"></i></Link>
+            <div className={`character__card ${getHouseColor(item.house)}`}>
+              <Link to='/characters'><i className="fas fa-chevron-circle-left"></i></Link>
               <div className="characters__card--image" style={{backgroundImage: `url(${item.image})`}}></div>
               <div className="character__card--content">
                 <h2 className="characters__card--name">{item.name}</h2>
@@ -69,7 +51,9 @@ class CharacterCard extends Component {
                   <p className="characters__card--patronus card-text">Patronus: {item.name === 'Draco Malfoy' || item.name === 'Cedric Diggory' || item.name === 'Neville Longbottom' || item.name === 'Horace Slughorn' || item.name === 'Vincent Crabbe' || item.name === 'Gregory Goyle' ? 'unknown' : `${item.patronus}`} {item.name === 'Rubeus Hagrid' ? `he can't produce one, it's a very difficult spell` : null } {item.name === 'Bellatrix Lestrange' || item.name === 'Lord Voldemort' || item.name === 'Lucius Malfoy' ? `Death Eaters can't produce a patronus` : null } {item.name === 'Mrs Norris' ? `cat's don't need a patronus` : null} {item.name === 'Argus Filch' ? 'squibs are non-magical' : null}</p>
                   <p className="characters__card--state card-text">State: {item.alive ? 'alive' : '💀'}</p>
                 </div>
-                <img className="characters__card--crest" src={getHouseCrest(item.house)} alt={item.house}/>
+                <Link to={`/house/${item.house}`}>
+                  <img className="characters__card--crest" src={getHouseCrest(item.house)} alt={item.house}/>
+                </Link>
               </div>
             </div>
           :

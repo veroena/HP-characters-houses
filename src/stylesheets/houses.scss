@@ -1,0 +1,44 @@
+.houses__container {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.houses__list {
+  list-style: none;
+  padding: 0;
+
+  @media all and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }  
+  @media all and (min-width: 768px) {
+    flex-wrap: wrap;
+  }
+}
+
+.houses__list--item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.houses__list--image {
+  height: 250px;
+
+  @media all and (min-width: 450px) {
+    height: 300px;
+  }
+
+  @media all and (min-width: 1024px) {
+    margin: 32px 0;
+  }
+
+  @media all and (min-width: 1100px) {
+    height: 320px;
+    margin: 22px 0;
+  }
+
+}

@@ -3,7 +3,40 @@
 @import 'stylesheets/header';
 @import 'stylesheets/filters';
 @import 'stylesheets/footer';
+@import 'stylesheets/house-card';
+@import 'stylesheets/landing';
+@import 'stylesheets/home';
+@import 'stylesheets/houses';
+@import 'stylesheets/sorting';
+@import 'stylesheets/modal';
+
 
 body {
   margin: 0;
+}
+
+
+.gryffindor {
+  background-color: #8E1405;
+  color: white;
+}
+
+.slytherin {
+  background-color: #235416;
+  color: white;
+}
+
+.hufflepuff {
+  background-color: #F2B817;
+  color: black;
+}
+
+.ravenclaw {
+  background-color: #204E80;
+  color: white;
+}
+
+.no-house {
+  background-color: #333333;
+  color: white
 }
