@@ -10,7 +10,7 @@ class Houses extends Component {
     return(
       <div className="houses__container">
         <Header sortingHouse={sortingHouse} getHouseColor={getHouseColor} getHouseCrest={getHouseCrest} />
-        <main>
+        <main className="main__houses">
           <ul className="houses__list">
             <li className="houses__list--item">
               <Link to="/house/Gryffindor">

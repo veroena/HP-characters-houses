@@ -1,7 +1,19 @@
 .houses__container {
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  @media all and (min-width: 1000px) {
+    overflow: hidden;
+  }
+}
+
+.main__houses {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .houses__list {
